@@ -14,6 +14,7 @@ RUN_SPEED_PPS = RUN_SPEED_MPS * PIXEL_PER_METER
 TIME_PER_ACTION = 0.5 # 한번 애니메이션 재생하는 시간
 ACTION_PER_TIME = 1.0 / TIME_PER_ACTION
 FRAMES_PER_ACTION = 4
+MAX_FRAME = [5,5,4]
 
 FRAMES_PER_TIME = ACTION_PER_TIME * FRAMES_PER_ACTION
 
@@ -28,7 +29,11 @@ class Bird:
         self.image = load_image('bird_animation.png')
 
     def update(self):
-        self.frame = (self.frame + FRAMES_PER_TIME * game_framework.frame_time ) % 8
+        self.frame = (self.frame + FRAMES_PER_TIME * game_framework.frame_time ) % MAX_FRAME[self.action]
+        if (self.frame == 0 ) :
+            self.action +=1
+            if self.action >= 3 :
+                self.action =0
         self.x += self.dir * RUN_SPEED_PPS * game_framework.frame_time
         self.x = clamp(25, self.x, 1600 - 25)
         pass

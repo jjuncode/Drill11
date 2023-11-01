@@ -21,8 +21,8 @@ FRAMES_PER_TIME = ACTION_PER_TIME * FRAMES_PER_ACTION
 BIRD_SIZE = [200,200]
 
 class Bird:
-    def __init__(self):
-        self.x, self.y = 400, 500
+    def __init__(self,pos_x,pos_y):
+        self.x, self.y = pos_x, pos_y
         self.frame = 0
         self.action = 0
         self.face_dir = 1

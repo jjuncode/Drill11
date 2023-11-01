@@ -7,4 +7,3 @@ open_canvas(1600, 600,sync = True)
 game_framework.run(start_mode)
 close_canvas()
 
- 

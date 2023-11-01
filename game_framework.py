@@ -59,7 +59,6 @@ def run(start_mode):
         frame_rate = 1.0 / frame_time
         cur_time += frame_time
 
-        print(frame_time, frame_rate)
         # fill here
 
     # repeatedly delete the top of the stack

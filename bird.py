@@ -23,11 +23,14 @@ class Bird:
         self.frame = 0
         self.action = 0
         self.face_dir = 1
-        self.dir = 0
+        self.dir = 1
+        self.speed = 100
         self.image = load_image('bird_animation.png')
 
     def update(self):
         self.frame = (self.frame + FRAMES_PER_TIME * game_framework.frame_time ) % 8
+        self.x += self.dir * RUN_SPEED_PPS * game_framework.frame_time
+        self.x = clamp(25, self.x, 1600 - 25)
         pass
 
     def handle_event(self, event):
